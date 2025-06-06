@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Healthcare Management System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <script src="{{ url_for('static', filename='js/common.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
+
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-brand">Healthcare System</div>
+        <ul class="navbar-links">
+            <li><a href="/" class="active">Home</a></li>
+            <li><a href="/patients.html">Patients</a></li>
+            <li><a href="/insights.html">Insights</a></li>
+            <li><a href="/add_patient.html">Add New Patient</a></li>
+            <li><a href="/settings.html">Settings</a></li>
+        </ul>
+    </nav>
+
+    <main class="container">
+        <h1>Dashboard Overview</h1>
+        <div class="dashboard-content">
+            <div class="left-content">
+                <div class="card patient-overview-card">
+                    <h2>Patient Overview</h2>
+                    <div id="patient-overview">
+                    </div>
+                    <div id="patient-carousel"></div>
+                    <div id="quick-stat">
+                        <h3>Quick Stat</h3>
+                        <p><strong>Total Patients:</strong> <span id="total-patients">0</span></p>
+                        <p><strong>New Patients this Month:</strong> <span id="new-patients">0</span></p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h2>AI Medicine Details/Suggestions</h2>
+                    <div class="filters">
+                        <div class="search-container">
+                            <input type="text" id="patient-search" class="input" placeholder="Enter patient name" oninput="showPatientSuggestions()">
+                            <div id="patient-suggestions" class="patient-suggestions hidden"></div>
+                        </div>
+                        <button class="btn btn-primary" onclick="searchPatientMedicines()">Search</button>
+                    </div>
+                    <div id="medicine-suggestions-patient"></div>
+                    <div id="medicine-suggestions" class="no-data-message">Enter a patient name to see medicine suggestions.</div>
+                    <div id="medicine-suggestions-loading" class="spinner hidden"></div>
+                    <div id="medicine-suggestions-error" class="alert hidden"></div>
+                </div>
+            </div>
+
+            <div class="right-content">
+                <div class="card">
+                    <h2>Recent Doctor Notes</h2>
+                    <div id="notes-list">No recent doctor notes available.</div>
+                    <button id="view-all-notes" class="btn btn-primary">View All Notes</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="all-notes-modal" class="modal hidden">
+            <div class="modal-content">
+                <span class="close-modal">×</span>
+                <h2>All Doctor Notes</h2>
+                <div id="all-notes-list"></div>
+            </div>
+        </div>
+
+        <div id="patientModal" class="modal hidden">
+            <div class="modal-content">
+                <span id="modalCloseButton" class="close-modal">×</span>
+                <div id="modalContent"></div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>© 2025 HEALTHCARE SYSTEM | POWERED BY AI</p>
+    </footer>
+</body>
+</html>
