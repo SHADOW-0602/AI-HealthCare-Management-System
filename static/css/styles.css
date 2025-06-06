@@ -1,0 +1,592 @@
+/* static/css/styles.css */
+
+/* Import base.css */
+@import url('base.css');
+
+/* Import layout.css */
+@import url('layout.css');
+
+/* Import components.css */
+@import url('components.css');
+
+/* Import forms.css */
+@import url('forms.css');
+
+/* --- General Enhancements --- */
+:root {
+    --primary-color: #4CAF50;
+    --primary-dark: #388E3C;
+    --secondary-color: #2196F3;
+    --accent-color: #FFC107;
+    --text-color: #333333;
+    --light-text-color: #f8f8f8;
+    --background-color: #e8f5e9;
+    --card-background: #ffffff;
+    --border-color: #e0e0e0;
+    --hover-background: #f0f0f0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.7;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+
+    /* Add background image */
+    background-image: url("background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    margin: 0;
+
+}
+
+a {
+    color: var(--secondary-color);
+    transition: color 0.3s ease-in-out;
+}
+
+a:hover {
+    color: var(--primary-dark);
+    text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--primary-dark);
+    margin-bottom: 25px;
+    font-weight: 600;
+}
+
+h1 {
+    font-size: 2.5em;
+    text-align: center;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--primary-color);
+    margin-bottom: 30px;
+}
+
+h2 {
+    font-size: 2em;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+/* --- Navigation Bar Enhancements --- */
+.navbar {
+    background-color: var(--primary-color);
+    padding: 15px 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    animation: slideInDown 0.5s ease-out;
+}
+
+.navbar-brand {
+    color: var(--light-text-color);
+    font-size: 1.8em;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.navbar-links a {
+    color: var(--light-text-color);
+    padding: 10px 18px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+    font-weight: 500;
+}
+
+.navbar-links a.active,
+.navbar-links a:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-2px);
+    text-decoration: none;
+}
+
+/* --- Card Component Enhancements --- */
+.card {
+    background-color: var(--card-background);
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    padding: 30px;
+    margin-bottom: 25px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* --- Button Component Enhancements --- */
+.btn {
+    padding: 12px 25px;
+    border-radius: 6px;
+    font-size: 1.05em;
+    font-weight: 600;
+    transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out, box-shadow 0.3s ease-in-out;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+    box-shadow: 0 4px 8px rgba(0, 123, 255, 0.2);
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 123, 255, 0.3);
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    color: white;
+    box-shadow: 0 4px 8px rgba(220, 53, 69, 0.2);
+}
+
+.btn-danger:hover {
+    background-color: #c82333;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(220, 53, 69, 0.3);
+}
+
+/* --- Table Component Enhancements --- */
+.table {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.table th,
+.table td {
+    padding: 15px 20px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.table th {
+    background-color: var(--primary-color);
+    color: var(--light-text-color);
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.table tbody tr:hover {
+    background-color: var(--hover-background);
+    transition: background-color 0.2s ease-in-out;
+}
+
+/* --- Form Styles Enhancements --- */
+.form {
+    background-color: var(--card-background);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.form-group label {
+    font-weight: 600;
+    color: var(--primary-dark);
+    margin-bottom: 8px;
+}
+
+.input {
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    font-size: 1em;
+    transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.input:focus {
+    outline: none;
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 8px rgba(33, 150, 243, 0.3);
+}
+
+textarea.input {
+    min-height: 120px;
+}
+
+/* --- Modal Component Enhancements --- */
+.modal-content {
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    animation: fadeInScale 0.4s ease-out;
+    max-width: 600px;
+    width: 90%;
+    padding: 30px;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.close-modal {
+    color: #aaa;
+    font-size: 2em;
+    transition: color 0.3s ease-in-out;
+}
+
+.close-modal:hover,
+.close-modal:focus {
+    color: var(--primary-dark);
+}
+
+/* --- Charts Grid Enhancements --- */
+.charts-grid {
+    gap: 25px;
+}
+
+.chart-container {
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    padding: 25px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.chart-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Separator for Modal Details */
+.section-separator {
+    border: none;
+    border-top: 1px solid var(--border-color);
+    margin: 20px 0;
+    opacity: 0.7;
+}
+
+/* --- Patient Carousel Enhancements (Home Page) --- */
+#patient-carousel {
+    position: relative;
+    overflow: hidden;
+    height: 200px;
+    border-radius: 8px;
+    background-color: #f0f4f8;
+    padding: 15px;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+.carousel-item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 10px;
+    background-color: transparent;
+    transform: translateX(100%);
+    opacity: 0;
+    transition: transform 0.8s ease-in-out, opacity 0.8s ease-in-out;
+}
+
+.carousel-item.active {
+    display: flex;
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.carousel-item.previous {
+    transform: translateX(-100%);
+    opacity: 0;
+}
+
+.carousel-item h3 {
+    color: var(--secondary-color);
+    margin-bottom: 10px;
+    font-size: 1.5em;
+}
+
+.carousel-item p {
+    margin-bottom: 5px;
+    color: var(--text-color);
+}
+
+/* Doctor Notes Section */
+#notes-list .note-item {
+    background-color: var(--card-background);
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+#notes-list .note-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.note-item strong {
+    color: var(--primary-dark);
+    font-weight: 600;
+}
+
+/* --- Dashboard Layout --- */
+.dashboard-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 25px;
+}
+
+.left-content, .right-content {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+#medicine-suggestions ul {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0 0 0;
+}
+
+#medicine-suggestions ul li {
+    padding: 10px;
+    border-left: 3px solid var(--primary-color);
+    margin-bottom: 10px;
+    background-color: var(--card-background);
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+#medicine-suggestions ul li strong {
+    color: var(--primary-dark);
+    font-weight: 600;
+}
+
+#medicine-suggestions-patient {
+    margin-bottom: 10px;
+}
+
+#medicine-suggestions-patient p {
+    background-color: var(--card-background);
+    border-radius: 6px;
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+#medicine-suggestions-patient p strong {
+    color: var(--primary-dark);
+    font-weight: 600;
+}
+
+.search-container {
+    position: relative;
+    flex: 1;
+}
+
+.patient-suggestions {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: var(--card-background);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 100;
+}
+
+.suggestion-item {
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.suggestion-item:hover {
+    background-color: var(--hover-background);
+}
+
+.patient-suggestions.hidden {
+    display: none;
+}
+
+#medicine-suggestions-loading.spinner {
+    border: 6px solid var(--border-color);
+    border-top: 6px solid var(--primary-color);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin: 20px auto;
+    display: block;
+    z-index: 101; /* Ensure above other elements */
+}
+
+/* --- Animations --- */
+@keyframes slideInDown {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+@keyframes staggerFadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* --- Footer --- */
+.footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+    background-color: var(--primary-dark);
+    color: var(--light-text-color);
+    font-size: 0.9em;
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Enhanced Filters Section */
+.filters {
+    background-color: var(--card-background);
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    margin-bottom: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+.filters .input {
+    flex: 1;
+    min-width: 150px;
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    font-size: 1em;
+}
+
+.filters .btn-primary {
+    padding: 12px 20px;
+    font-size: 1em;
+}
+
+/* Patient Overview Card Styling */
+.patient-overview-card {
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    background-color: var(--card-background);
+    transition: transform 0.2s ease-in-out;
+}
+
+.patient-overview-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2em;
+    }
+    .navbar {
+        flex-direction: column;
+        padding: 10px 15px;
+    }
+    .navbar-links {
+        margin-top: 10px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .navbar-links li {
+        margin: 5px 10px;
+    }
+    .card, .form, .chart-container {
+        padding: 20px;
+    }
+    .filters {
+        flex-direction: column;
+        gap: 8px;
+    }
+    .filters .input,
+    .filters .btn-primary {
+        width: 100%;
+        min-width: unset;
+    }
+    .dashboard-content {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.8em;
+    }
+    .navbar-brand {
+        font-size: 1.5em;
+    }
+    .container {
+        padding: 15px;
+        margin-top: auto;
+    }
+    .btn {
+        padding: 10px 20px;
+        font-size: 0.95em;
+    }
+    .table th, .table td {
+        padding: 10px 12px;
+        font-size: 0.85em;
+    }
+    .form-group {
+        gap: 5px;
+    }
+    .input {
+        padding: 10px;
+    }
+}

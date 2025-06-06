@@ -1,0 +1,57 @@
+/* Form Styles */
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group.error .input {
+    border-color: #dc3545;
+}
+
+.input {
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 1em;
+    transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.input:focus {
+    outline: none;
+    border-color: #2196F3;
+    box-shadow: 0 0 8px rgba(33, 150, 243, 0.3);
+}
+
+textarea.input {
+    resize: vertical;
+    min-height: 120px;
+}
+
+textarea.input#doctor_notes,
+textarea.input#prescriptions {
+    min-height: 120px;
+}
+
+/* Filters Section */
+.filters {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.filters .input {
+    flex: 1;
+    min-width: 150px;
+}
