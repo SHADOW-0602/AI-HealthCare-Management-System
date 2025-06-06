@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patients - Healthcare Management System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <script src="{{ url_for('static', filename='js/common.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/patients.js') }}"></script>
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-brand">Healthcare System</div>
+        <ul class="navbar-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/patients.html">Patients</a></li>
+            <li><a href="/insights.html">Insights</a></li>
+            <li><a href="/add_patient.html">Add New Patient</a></li>
+            <li><a href="/settings.html">Settings</a></li>
+        </ul>
+    </nav>
+    <main class="container">
+        <h1>All Patients</h1>
+        <div class="card">
+            <div class="filters">
+                <input type="text" id="search-name" placeholder="Search by Name" class="input">
+                <select id="search-department" class="input">
+                    <option value="">Select Department</option>
+                    <option value="Cardiology">Cardiology</option>
+                    <option value="Neurology">Neurology</option>
+                    <option value="Orthopedics">Orthopedics</option>
+                    <option value="Pediatrics">Pediatrics</option>
+                    <option value="Oncology">Oncology</option>
+                    <option value="Dermatology">Dermatology</option>
+                </select>
+                <select id="search-sort" class="input">
+                    <option value="name">Sort by Name</option>
+                    <option value="patient_id">Sort by Patient ID</option>
+                </select>
+                <button id="reset-search-btn" class="btn btn-primary">Reset</button>
+            </div>
+            <div id="table_error" class="alert hidden"></div>
+            <table class="table" id="patients-table">
+                <thead>
+                    <tr>
+                        <th>Patient ID</th>
+                        <th>Name</th>
+                        <th>Age</th>
+                        <th>Gender</th>
+                        <th>Department</th>
+                        <th>Contact</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="patients-table-body"></tbody>
+            </table>
+            <div id="pagination" class="pagination"></div>
+        </div>
+        <div id="patientModal" class="modal hidden">
+            <div class="modal-content">
+                <span id="close-patient-modal" class="close-modal">&times;</span>
+                <div id="modalContent"></div>
+            </div>
+        </div>
+    </main>
+    <footer class="footer">
+        <p>© 2025 HEALTHCARE SYSTEM | POWERED BY AI</p>
+    </footer>
+</body>
+</html>

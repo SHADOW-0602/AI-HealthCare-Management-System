@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New Patient - Healthcare Management System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <script src="{{ url_for('static', filename='js/common.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/add_patient.js') }}"></script>
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-brand">Healthcare System</div>
+        <ul class="navbar-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/patients.html">Patients</a></li>
+            <li><a href="/insights.html">Insights</a></li>
+            <li><a href="/add_patient.html">Add New Patient</a></li>
+            <li><a href="/settings.html">Settings</a></li>
+        </ul>
+    </nav>
+    </nav>
+    <main class="container">
+        <h1>Add New Patient</h1>
+        <div class="card">
+            <form id="add-patient-form" class="form">
+                <input type="hidden" id="user_id" value="anonymous">
+                <div id="form-alert" class="alert hidden"></div>
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" class="input" required>
+                    <div id="name_error" class="error-message hidden"></div>
+                </div>
+                <div class="form-group">
+                    <label for="age">Age:</label>
+                    <input type="number" id="age" name="age" class="input" required min="0" max="150">
+                    <div id="age_error" class="error-message hidden"></div>
+                </div>
+                <div class="form-group">
+                    <label for="gender">Gender:</label>
+                    <select id="gender" name="gender" class="input">
+                        <option value="">Select Gender</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Other">Other</option>
+                    </select>
+                    <div id="gender_error" class="error-message hidden"></div>
+                </div>
+                <div class="form-group">
+                    <label for="department">Department:</label>
+                    <select id="department" name="department" class="input">
+                        <option value="">Select Department</option>
+                        <option value="Cardiology">Cardiology</option>
+                        <option value="Neurology">Neurology</option>
+                        <option value="Orthopedics">Orthopedics</option>
+                        <option value="Pediatrics">Pediatrics</option>
+                        <option value="Oncology">Oncology</option>
+                        <option value="Dermatology">Dermatology</option>
+                    </select>
+                    <div id="department_error" class="error-message hidden"></div>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone:</label>
+                    <input type="tel" id="phone" name="phone" class="input" required>
+                    <div id="phone_error" class="error-message hidden"></div>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" class="input" required>
+                    <div id="email_error" class="error-message hidden"></div>
+                </div>
+                <div class="form-group">
+                    <label for="address">Address:</label>
+                    <textarea id="address" name="address" class="input" required></textarea>
+                    <div id="address_error" class="error-message hidden"></div>
+                </div>
+                <div class="form-group">
+                    <label for="emergency_contact_number">Emergency Contact Number:</label>
+                    <input type="tel" id="emergency_contact_number" name="emergency_contact_number" class="input" required>
+                    <div id="emergency_contact_error" class="error-message hidden"></div>
+                </div>
+                <div class="form-group">
+                    <label for="blood_group">Blood Group:</label>
+                    <select id="blood_group" name="blood_group" class="input">
+                        <option value="">Select Blood Group</option>
+                        <option value="A+">A+</option>
+                        <option value="A-">A-</option>
+                        <option value="B+">B+</option>
+                        <option value="B-">B-</option>
+                        <option value="AB+">AB+</option>
+                        <option value="AB-">AB-</option>
+                        <option value="O+">O+</option>
+                        <option value="O-">O-</option>
+                    </select>
+                    <div id="blood_group_error" class="error-message hidden"></div>
+                </div>
+                <div class="form-group">
+                    <label for="allergies">Allergies (one per line):</label>
+                    <textarea id="allergies" name="allergies" class="input"></textarea>
+                    <div id="allergies_error" class="error-message hidden"></div>
+                </div>
+                <div class="form-group">
+                    <label for="prescriptions">Prescriptions (one per line):</label>
+                    <textarea id="prescriptions" name="prescriptions" class="input"></textarea>
+                    <div id="prescriptions_error" class="error-message hidden"></div>
+                </div>
+                <div class="form-group">
+                    <label for="doctor_notes">Doctor Notes (one per line):</label>
+                    <textarea id="doctor_notes" name="doctor_notes" class="input"></textarea>
+                    <div id="doctor_notes_error" class="error-message hidden"></div>
+                </div>
+                <button type="submit" class="btn btn-primary">Add Patient</button>
+                <div id="form_error" class="error-message hidden"></div>
+            </form>
+        </div>
+    </main>
+    <footer class="footer">
+        <p>© 2025 HEALTHCARE SYSTEM | POWERED BY AI</p>
+    </footer>
+</body>
+</html>

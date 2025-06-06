@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings - Healthcare Management System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <script src="{{ url_for('static', filename='js/common.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/settings.js') }}"></script>
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
+
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-brand">Healthcare System</div>
+        <ul class="navbar-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/patients.html">Patients</a></li>
+            <li><a href="/insights.html">Insights</a></li>
+            <li><a href="/add_patient.html">Add New Patient</a></li>
+            <li><a href="/settings.html">Settings</a></li>
+        </ul>
+    </nav>
+    <main class="container">
+        <h1>Manage Patients</h1>
+        <div class="card">
+        <div id="table_error" class="alert hidden"></div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Patient ID</th>
+                        <th>Name</th>
+                        <th>Age</th>
+                        <th>Gender</th>
+                        <th>Department</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="patient-table-body">
+                    <tr><td colspan="6">Loading patients...</td></tr>
+                </tbody>
+            </table>
+            <div id="table_error" class="alert alert-danger hidden"></div>
+        </div>
+        <div id="edit-patient-modal" class="modal hidden">
+            <div class="modal-content">
+                <span id="close-edit-modal" class="close-modal">×</span>
+                <h2>Edit Patient</h2>
+                <form id="edit-patient-form" class="form">
+                    <input type="hidden" id="edit_patient_id" name="patient_id">
+                    <input type="hidden" id="user_id" value="anonymous">
+                    <div id="edit-form-alert" class="alert hidden"></div>
+                    <div class="form-group">
+                        <label for="edit_name">Name:</label>
+                        <input type="text" id="edit_name" name="name" class="input" required>
+                        <div id="edit_name_error" class="error-message hidden"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="edit_age">Age:</label>
+                        <input type="number" id="edit_age" name="age" class="input" required min="0" max="150">
+                        <div id="edit_age_error" class="error-message hidden"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="edit_gender">Gender:</label>
+                        <select id="edit_gender" name="gender" class="input">
+                            <option value="">Select Gender</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Other">Other</option>
+                        </select>
+                        <div id="edit_gender_error" class="error-message hidden"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="edit_department">Department:</label>
+                        <select id="edit_department" name="department" class="input">
+                            <option value="">Select Department</option>
+                            <option value="Cardiology">Cardiology</option>
+                            <option value="Neurology">Neurology</option>
+                            <option value="Orthopedics">Orthopedics</option>
+                            <option value="Pediatrics">Pediatrics</option>
+                            <option value="Oncology">Oncology</option>
+                            <option value="Dermatology">Dermatology</option>
+                        </select>
+                        <div id="edit_department_error" class="error-message hidden"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="edit_phone">Phone:</label>
+                        <input type="tel" id="edit_phone" name="phone" class="input" required>
+                        <div id="edit_phone_error" class="error-message hidden"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="edit_email">Email:</label>
+                        <input type="email" id="edit_email" name="email" class="input" required>
+                        <div id="edit_email_error" class="error-message hidden"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="edit_address">Address:</label>
+                        <textarea id="edit_address" name="address" class="input" required></textarea>
+                        <div id="edit_address_error" class="error-message hidden"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="edit_emergency_contact">Emergency Contact Number:</label>
+                        <input type="tel" id="edit_emergency_contact" name="emergency_contact" class="input" required>
+                        <div id="edit_emergency_contact_error" class="error-message hidden"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="edit_blood_group">Blood Group:</label>
+                        <select id="edit_blood_group" name="blood_group" class="input">
+                            <option value="">Select Blood Group</option>
+                            <option value="A+">A+</option>
+                            <option value="A-">A-</option>
+                            <option value="B+">B+</option>
+                            <option value="B-">B-</option>
+                            <option value="AB+">AB+</option>
+                            <option value="AB-">AB-</option>
+                            <option value="O+">O+</option>
+                            <option value="O-">O-</option>
+                        </select>
+                        <div id="edit_blood_group_error" class="error-message hidden"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="edit_allergies">Allergies (one per line):</label>
+                        <textarea id="edit_allergies" name="allergies" class="input"></textarea>
+                        <div id="edit_allergies_error" class="error-message hidden"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="edit_prescriptions">Prescriptions (one per line):</label>
+                        <textarea id="edit_prescriptions" name="prescriptions" class="input"></textarea>
+                        <div id="edit_prescriptions_error" class="error-message hidden"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="edit_doctor_notes">Doctor Notes (one per line):</label>
+                        <textarea id="edit_doctor_notes" name="doctor_notes" class="input"></textarea>
+                        <div id="edit_doctor_notes_error" class="error-message hidden"></div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Update Patient</button>
+                    <div id="edit_form_error" class="error-message hidden"></div>
+                </form>
+            </div>
+        </div>
+    </main>
+    <footer class="footer">
+        <p>© 2025 HEALTHCARE SYSTEM | POWERED BY AI</p>
+    </footer>
+</body>
+</html>

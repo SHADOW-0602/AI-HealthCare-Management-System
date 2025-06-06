@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insights - Healthcare Management System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="{{ url_for('static', filename='js/charts.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/insights.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/common.js') }}"></script>
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-brand">Healthcare System</div>
+        <ul class="navbar-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/patients.html">Patients</a></li>
+            <li><a href="/insights.html">Insights</a></li>
+            <li><a href="/add_patient.html">Add New Patient</a></li>
+            <li><a href="/settings.html">Settings</a></li>
+        </ul>
+    </nav>
+    <main class="container" id="insights">
+        <input type="hidden" id="user_id" value="anonymous">
+        <h1>Insights & Analytics</h1>
+        <div class="charts-grid">
+            <div class="chart-container loading">
+                <div class="spinner"></div>
+                <canvas id="gender-chart"></canvas>
+                <p class="no-data-message"></p>
+            </div>
+            <div class="chart-container loading">
+                <div class="spinner"></div>
+                <canvas id="allergies-chart"></canvas>
+                <p class="no-data-message"></p>
+            </div>
+            <div class="chart-container loading">
+                <div class="spinner"></div>
+                <canvas id="age-dist-chart"></canvas>
+                <p class="no-data-message"></p>
+            </div>
+            <div class="chart-container loading">
+                <div class="spinner"></div>
+                <canvas id="blood-group-chart"></canvas>
+                <p class="no-data-message"></p>
+            </div>
+            <div class="chart-container loading">
+                <div class="spinner"></div>
+                <canvas id="visits-chart"></canvas>
+                <p class="no-data-message"></p>
+            </div>
+            <div class="chart-container loading">
+                <div class="spinner"></div>
+                <canvas id="age-dept-chart"></canvas>
+                <p class="no-data-message"></p>
+            </div>
+        </div>
+    </main>
+    <footer class="footer">
+        <p>© 2025 HEALTHCARE SYSTEM | POWERED BY AI</p>
+    </footer>
+</body>
+</html>
