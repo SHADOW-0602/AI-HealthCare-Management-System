@@ -139,7 +139,6 @@ curl -X POST http://localhost:5000/patients \
 4. Push to the branch (`git push origin feature/your-feature`).
 5. Open a pull request with a detailed description.
 
-Please follow the [Contributor Covenant Code of Conduct](https://www.contributor-covenant.org/).
 
 ## Future Improvements
 - Add user authentication (e.g., JWT or OAuth).
@@ -152,7 +151,7 @@ Please follow the [Contributor Covenant Code of Conduct](https://www.contributor
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
 ## Contact
-For questions or support, open an issue on GitHub or contact [your-email@example.com].
+For questions or support, open an issue on GitHub or contact [kushagra.singh0602@gmail.com].
 
 ---
-**Built with ❤️ by [Your Name/Team]**
+**Built with ❤️ by [Kushagra Singh]**
